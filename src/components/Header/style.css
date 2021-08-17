@@ -1,9 +1,30 @@
 .navbar{
-    background-color: red;
-    color: white;
+    background-color: #FFC300;
     padding: 15px 5px;
 }
 
-.logo{
-    color: white;
+.logo{  
+    font-size: 25px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #001D3D;
+}
+
+.logo:hover{
+    color: #001D3D;
+}
+
+.navlink{
+    text-decoration: none;
+    color: #000814;
+    padding: 10px;
+    margin-right: 30px;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.navlink:hover{
+    color: #000814;
+
 }

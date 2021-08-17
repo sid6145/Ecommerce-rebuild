@@ -1,0 +1,82 @@
+.home-container {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.header-section {
+  width: 100%;
+  height: 455px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(255, 255, 158);
+}
+
+.header-img {
+  width: 400px;
+  height: 300px;
+}
+
+.header-text {
+  width: 30%;
+}
+
+.header-text h1 {
+  color: #003566;
+}
+
+.header-btn {
+  padding: 10px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #FFC300;
+  margin-top: 15px;
+  color: #003566;
+  box-shadow: 1px 1px 2px black;
+  transition: 0.4s ease;
+}
+
+.header-btn:hover {
+  background-color: white;
+  color: #003566;
+  box-shadow: 1px 1px 3px black;
+}
+
+.electronics-section{
+    height: 350px;
+    padding: 50px 50px;
+    border-bottom: 1px solid;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.fashion-section{
+    height: 350px;
+    padding: 50px 50px;
+}
+
+.card-img{
+    width: 200px;
+    height: 200px;
+}
+
+
+@media screen and (max-width:700px){
+    .header-section{
+        padding: 0 30px;
+    }
+    
+    .header-img{
+        display: none;
+    }
+ 
+    .header-text {
+        width: 100%;
+        text-align: center;
+      }
+}
