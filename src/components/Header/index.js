@@ -15,9 +15,8 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ms-auto">
        <Link className="navlink" to="/"><Nav>Home</Nav></Link> 
-       <Link className="navlink" to="/products"><Nav>Products</Nav></Link> 
-       <Link className="navlink" to="cart"><Nav>Cart</Nav></Link>  
-       <Link className="navlink" to="signin"><Nav>Sign in</Nav></Link>   
+       <Link className="navlink" to="/cart"><Nav>Cart</Nav></Link>  
+       <Link className="navlink" to="/signin"><Nav>Sign in</Nav></Link>   
         </Nav>
         </Navbar.Collapse>
         </Container>

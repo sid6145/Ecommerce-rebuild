@@ -6,11 +6,10 @@
 
 .header-section {
   width: 100%;
-  height: 455px;
-  padding: 10px 10px;
+  min-height: 500px;
+  padding: 180px 10px;
   display: flex;
   justify-content: center;
-  align-items: center;
   justify-content: space-evenly;
   background-color: rgb(255, 255, 158);
 }
@@ -46,29 +45,40 @@
   box-shadow: 1px 1px 3px black;
 }
 
-.electronics-section{
-    height: 350px;
-    padding: 50px 50px;
-    border-bottom: 1px solid;
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
+
+.products-section{
+  min-height: 90vh;
+  padding: 50px 50px;
 }
 
-.fashion-section{
-    height: 350px;
-    padding: 50px 50px;
+.product-card{
+  padding: 20px 5px;
+  width: auto;
+  height: 350px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.card-img{
-    width: 200px;
-    height: 200px;
+.product-card img{
+  width: 150px ;
+  height: 200px;
+}
+
+.product-card h5{
+  margin-top: 10px;
+}
+
+.product-card button{
+  padding: 7px 7px;
+  border: none;
+  border-radius: 5px;
 }
 
 
 @media screen and (max-width:700px){
     .header-section{
-        padding: 0 30px;
+      padding: 180px 30px;
     }
     
     .header-img{

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 
@@ -13,39 +13,77 @@ function Home() {
             Get best deals on your favorite products with free delivery and
             shipping all over India
           </h5>
-          <button className="header-btn">Products</button>
+          <a href="#products">
+            <button className="header-btn">Shop now</button>
+          </a>
         </div>
         <img className="header-img" src="images/header-img.svg" />
       </div>
 
-      <div className="electronics-section">
-        <Card style={{ width: "18rem", padding:"10px 50px" }}>
-          <img className="card-img" src="images/controller.jpg"/>
+      <div id="products" className="products-section">
+        <Row>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+        
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
 
-       
-            <Card.Title>Card Title</Card.Title>
-          
-        </Card>
-        <Card style={{ width: "18rem", padding:"10px 50px"  }}>
-          <img className="card-img" src="images/laptop.jpg"/>
-       
-            <Card.Title>Card Title</Card.Title>
-        
-        </Card>
-        <Card style={{ width: "18rem", padding:"10px 50px"  }}>
-          <img className="card-img" src="images/game.jpg"/>
-     
-            <Card.Title>Card Title</Card.Title>
-      
-        </Card>
-        <Card style={{ width: "18rem", padding:"10px 50px"  }}>
-          <img className="card-img" src="images/ryzen5.jpg"/>
-        
-            <Card.Title>Card Title</Card.Title>
-     
-        </Card>
+          <Col md="3" sm="6">
+            <div className="product-card">
+              <img src="images/game.jpg" />
+              <h5>Red Dead Redemption 2</h5>
+              <button>Add to cart</button>
+            </div>
+          </Col>
+        </Row>
+
+
       </div>
-      <div className="fashion-section"></div>
     </div>
   );
 }
