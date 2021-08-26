@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import { db } from "../../firebase-config";
 
-function Home() {
+function Home({user}) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -29,6 +29,19 @@ function Home() {
   return (
     <div className="home-container" fluid>
       <div className="header-section">
+    <Alert variant="success">
+    <Alert.Heading>Hey, nice to see you</Alert.Heading>
+    <p>
+    Aww yeah, you successfully read this important alert message. This example
+    text is going to run a bit longer so that you can see how spacing within an
+    alert works with this kind of content.
+    </p>
+    <hr />
+    <p className="mb-0">
+    Whenever you need to, be sure to use margin utilities to keep things nice
+    and tidy.
+    </p>
+    </Alert>
         <div className="header-text">
           <h1>Ecommerce</h1>
           <h5>
