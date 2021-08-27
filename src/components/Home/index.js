@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Alert } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { db } from "../../firebase-config";
+import {auth, db } from "../../firebase-config";
+import Product from "./products";
 
 function Home({user}) {
+  const history = useHistory()
   const [products, setProducts] = useState([]);
+  const [userId, setUserId] = useState(null)
 
   useEffect(() => {
     getProducts()
+    getUserId()
   }, [])
+
+  const getUserId = () => {
+    auth.onAuthStateChanged(user => {
+      if(user){
+        setUserId(user.uid)
+      }
+    })
+  }
 
   const getProducts = () => {
     db.collection("products").onSnapshot((querySnapshot) => {
@@ -24,24 +37,21 @@ function Home({user}) {
     });
   };
 
+
+
+  const addtoCart = (product) => {
+   if(userId){
+     db.collection(`cart ${userId}`).doc(product.id).set(product).then(() => console.log("success"))
+   }else{
+     console.log("oh no")
+   }
+  }
  
+  
 
   return (
     <div className="home-container" fluid>
       <div className="header-section">
-    <Alert variant="success">
-    <Alert.Heading>Hey, nice to see you</Alert.Heading>
-    <p>
-    Aww yeah, you successfully read this important alert message. This example
-    text is going to run a bit longer so that you can see how spacing within an
-    alert works with this kind of content.
-    </p>
-    <hr />
-    <p className="mb-0">
-    Whenever you need to, be sure to use margin utilities to keep things nice
-    and tidy.
-    </p>
-    </Alert>
         <div className="header-text">
           <h1>Ecommerce</h1>
           <h5>
@@ -60,12 +70,7 @@ function Home({user}) {
 
           {products.map((item) => (
             <Col md="3" sm="6">
-            <div className="product-card">
-              <img src={item.image}/>
-              <h5>{item.name}</h5>
-              <h5>Rs {item.price}</h5>
-              <button>Add to cart</button>
-            </div>
+              <Product image={item.image} name={item.name} price={item.price} id={item.id} addtoCart={addtoCart}/>
           </Col>
           ))}
           
