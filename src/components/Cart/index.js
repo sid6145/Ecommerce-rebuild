@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import Product from '../Home/products'
+import { Col, Row } from 'react-bootstrap'
+import "bootstrap/dist/css/bootstrap.min.css";
+import './style.css'
 import { auth, db } from '../../firebase-config'
+import CartProduct from './cartProduct';
 
 function Cart() {
     const [cart, setCart] = useState([])
@@ -9,7 +12,7 @@ function Cart() {
     useEffect(() => {
         getUserId()
         getCartProducts()
-    }, [])
+    }, [cart])
 
     const getUserId = () => {
         auth.onAuthStateChanged(user => {
@@ -33,11 +36,23 @@ function Cart() {
         })
     }
 
+    const deleteCartProducts = (product) => {
+        db.collection(`cart ${userId}`).doc(product.id).delete()
+        console.log(product.id)
+    }
+
     return (
         <div className="cart-container">
-            {cart.map((item) => (
-                 <Product image={item.image} name={item.name} price={item.price} id={item.id}/>
-            ))}  
+        <Row>
+            
+           {cart.map((item) => (
+               <Col md={3} sm={6}>
+                  <CartProduct image={item.image} name={item.name} price={item.price} id={item.id} deleteCartProducts={deleteCartProducts}/>
+                </Col>
+           ))}
+           
+
+        </Row>
         </div>
     )
 

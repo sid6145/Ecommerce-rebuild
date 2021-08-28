@@ -11,29 +11,32 @@ import Cart from "./components/Cart";
 
 function App() {
   const history = useHistory();
-  const [user, setUser] = useState(null);
-
-
-  useEffect(() => {
-    
   
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        db.collection("users")
-          .doc(user.uid)
-          .get()
-          .then((snapshot) => {
-          const userN = snapshot.data().name
-          });
-      } else {
-        setUser(null);
-      }
-    });
-  }, []);
 
-  setUser(userN)
 
- 
+  const GetUser = () => {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+              setUser(snapshot.data().name)
+            });
+        } else {
+            setUser(null)
+        }
+      });
+    },[user])
+    return user
+  }
+
+  const user = GetUser()
+
+
   console.log(user);
   return (
     <div className="App">
