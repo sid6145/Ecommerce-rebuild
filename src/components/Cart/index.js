@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Row, Button } from 'react-bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './style.css'
 import { auth, db } from '../../firebase-config'
@@ -8,6 +8,7 @@ import CartProduct from './cartProduct';
 function Cart() {
     const [cart, setCart] = useState([])
     const [userId, setUserId] = useState(null)
+    const [successMsg, setSuccessMsg] = useState("")
 
     useEffect(() => {
         getUserId()
@@ -37,23 +38,31 @@ function Cart() {
     }
 
     const deleteCartProducts = (product) => {
-        db.collection(`cart ${userId}`).doc(product.id).delete()
-        console.log(product.id)
+        db.collection(`cart ${userId}`).doc(product.id).delete().then(() => {
+            setSuccessMsg("Successfully removed item from cart")
+            setTimeout(() => {
+                setSuccessMsg("")
+            }, 1500);
+        })
+
     }
 
     return (
         <div className="cart-container">
-        <Row>
-            
+            {cart.length <= 0 ?
+            <h1 className="heading">Add Products to cart to view them here :)</h1>
+            : 
+            <Row>
+           {successMsg ? <h3 className="success-msg">{successMsg}</h3> : ""}  
            {cart.map((item) => (
                <Col md={3} sm={6}>
                   <CartProduct image={item.image} name={item.name} price={item.price} id={item.id} deleteCartProducts={deleteCartProducts}/>
                 </Col>
-           ))}
-           
-
+           ))} 
         </Row>
+            }
         </div>
+
     )
 
 

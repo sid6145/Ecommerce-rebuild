@@ -6,10 +6,11 @@ import "./style.css";
 import {auth, db } from "../../firebase-config";
 import Product from "./products";
 
-function Home({user}) {
+function Home() {
   const history = useHistory()
   const [products, setProducts] = useState([]);
   const [userId, setUserId] = useState(null)
+  const [successMsg, setSuccessMsg] = useState("")
 
   useEffect(() => {
     getProducts()
@@ -38,12 +39,16 @@ function Home({user}) {
   };
 
 
-
   const addtoCart = (product) => {
    if(userId){
-     db.collection(`cart ${userId}`).doc(product.id).set(product).then(() => console.log("success"))
+     db.collection(`cart ${userId}`).doc(product.id).set(product).then(() => {
+       setSuccessMsg("Added product to cart")
+        setTimeout(() => {
+          setSuccessMsg("")
+        }, 2000)
+      })
    }else{
-     console.log("oh no")
+     history.push("/signin")
    }
   }
  
@@ -66,10 +71,11 @@ function Home({user}) {
       </div>
 
       <div id="products" className="products-section">
+      {successMsg ? <h3 className="success-msg">{successMsg}</h3> : ""}
         <Row>
-
+          
           {products.map((item) => (
-            <Col md="3" sm="6">
+            <Col md="4" sm="6">
               <Product image={item.image} name={item.name} price={item.price} id={item.id} addtoCart={addtoCart}/>
           </Col>
           ))}

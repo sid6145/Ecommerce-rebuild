@@ -27,6 +27,7 @@ function Header({user}) {
       {
         user ?
         <> 
+        <Nav className="navlink">HI! - {user}</Nav>
         <Nav><button className="signout" onClick={handleSignout}>Sign out</button></Nav>
         </>     
         : 

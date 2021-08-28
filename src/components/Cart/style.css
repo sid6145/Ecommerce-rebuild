@@ -39,4 +39,15 @@
     background-color:#FFC300 ;
     color: black;
   }
+
+  .heading{
+      text-align: center;
+      padding: 30px;
+  }
   
+  .success-msg{
+      text-align: center;
+      font-size: 15px;
+      background-color: rgb(94, 221, 94);
+      color: white;
+  }

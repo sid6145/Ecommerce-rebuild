@@ -8,14 +8,14 @@
 .success-msg{
   padding: 10px 10px;
   font-size: 15px;
-  background-color: rgb(155, 235, 118);
-  color: black;
+  background-color: rgb(94, 221, 94);
+  color: white;
 }
 
 .error-msg{
   padding: 10px 10px;
   font-size: 15px;
-  background-color: rgb(248, 117, 117);
-  color: black;
+  background-color: rgb(245, 72, 72);
+  color: white;
 }
 

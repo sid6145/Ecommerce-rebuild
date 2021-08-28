@@ -33,7 +33,9 @@
 .signout{
     padding: 10px 20px;
     border: none;
-    border-radius: 3px; 
-    background-color: turquoise;
-    font-size: 15px;
+    border-radius: 10px; 
+    background-color: transparent;
+    font-size: 19px;
+    font-weight: 400;
+    color:#000814;
 }
