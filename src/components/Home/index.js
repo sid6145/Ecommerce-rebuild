@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import "./style.css";
 import {auth, db } from "../../firebase-config";
 import Product from "./products";
@@ -64,25 +65,27 @@ function Home() {
             shipping all over India
           </h5>
           <a href="#products">
-            <button className="header-btn">Shop now</button>
+            <button className="header-btn"><i class="bi bi-bag-plus"></i> Shop now</button>
           </a>
         </div>
         <img className="header-img" src="images/header-img.svg" />
       </div>
 
+
       <div id="products" className="products-section">
       {successMsg ? <h3 className="success-msg">{successMsg}</h3> : ""}
         <Row>
-          
+          <h2 className="products-heading">Products</h2>
           {products.map((item) => (
             <Col md="4" sm="6">
               <Product image={item.image} name={item.name} price={item.price} id={item.id} addtoCart={addtoCart}/>
-          </Col>
+           </Col>
           ))}
           
         </Row>
       </div>
     </div>
+    
   );
 }
 

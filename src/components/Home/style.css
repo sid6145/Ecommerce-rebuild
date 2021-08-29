@@ -7,12 +7,12 @@
 
 .header-section {
   width: 100%;
-  min-height: 500px;
-  padding: 180px 10px;
+  min-height: 75vh;
+  padding: 140px 10px;
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
-  background-color: #003566;
+  background-color: rgb(2, 175, 206)
 }
 
 .header-img {
@@ -33,7 +33,7 @@
 }
 
 .header-btn {
-  padding: 10px 25px;
+  padding: 10px 15px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
@@ -52,13 +52,16 @@
 
 
 .products-section{
-  min-height: 90vh;
-  padding: 0 10px;
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+.products-heading{
+  text-align: center;
+  padding: 30px;
 }
 
 .product-card{
-  width: 100px;
-  height: 250px;
   text-align: center;
   border-radius: 10px;
   margin-bottom: 20px;

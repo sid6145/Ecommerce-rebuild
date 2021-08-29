@@ -14,6 +14,7 @@ import NewProduct from "./components/AddProduct";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 function App() {
   const history = useHistory();
@@ -46,8 +47,6 @@ function App() {
       <BrowserRouter>
       <Header user={user} />
         <Switch>
-      
-
           <Route exact path="/">
             <Home user={user} />
           </Route>
@@ -67,6 +66,7 @@ function App() {
             <Signup />
           </Route>
         </Switch>
+      <Footer />
       </BrowserRouter>
     </div>
   );
